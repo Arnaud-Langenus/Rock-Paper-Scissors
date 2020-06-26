@@ -107,7 +107,7 @@ const game = () => {
     }
     //call all inner function
     startGame();
-    updateScore();
+    playMatch();
 }
 
 //start the game function
