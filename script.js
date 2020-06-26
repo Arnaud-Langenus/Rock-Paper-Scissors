@@ -9,7 +9,7 @@ const game = () => {
         const match = document.querySelector('.match');
 
         playBtn.addEventListener('click', () => {
-            introScreen.classlist.add('fadeOut');
+            introScreen.classlist.add("fadeOut");
             match.classList.add("fadeIn");
         })
     }
@@ -18,41 +18,37 @@ const game = () => {
         const options = document.querySelectorAll(".options button");
         const playerHand = document.querySelector(".user-hand");
         const computerHand = document.querySelector(".computer-hand");
-        const hands = document.querySelectorAll('.hands img');
+        const hands = document.querySelectorAll(".hands img");
 
         hands.forEach(hand => {
-            hand.addEventListener('animationend', function () {
-                this.style.animation = '';
+            hand.addEventListener("animationend", function () {
+                this.style.animation = "";
             })
         })
         //computer Options
         const computerOptions = ['rock', 'paper', 'scissors'];
 
-        options.forEach (option => {
-           option._addEventListener('click', function() {
-               //computer choice
-               const computerNumber = Math.floor(Math.random() * 3);
-               const computerChoice = computerOptions[computerNumber];
+        options.forEach(option => {
+            option.addEventListener("click", function() {
+                //Computer Choice
+                const computerNumber = Math.floor(Math.random() * 3);
+                const computerChoice = computerOptions[computerNumber];
 
-               setTimeout(()=> {
-                   //Here we call compare hands
-                   compareHands(this.textContent, computerChoice);
-
-                   //update images
-                   userHand.src = `./Pictures/${this.textContent}.png`;
-                   computerHand.src = `./Pictures/${computerChoice}.png`;
-               })
-                setTimeout(()=>{
-
-                }, 1000)
+                setTimeout(() => {
+                    //Here is where we call compare hands
+                    compareHands(this.textContent, computerChoice);
+                    //Update Images
+                    playerHand.src = `./assets/${this.textContent}.png`;
+                    computerHand.src = `./assets/${computerChoice}.png`;
+                }, 1000);
                //Animation
-               userHand.style.animation = "shakeUser 2s ease";
-               computerHand.style.animation = "shakeComputer 2s ease";
+               userHand.style.animation = "shakeUser 1s ease";
+               computerHand.style.animation = "shakeComputer 1s ease";
             });
         });
     }
     const updateScore = () => {
-        const userScore = document.querySelector('.player-score p');
+        const userScore = document.querySelector('.user-score p');
         const computerScore = document.querySelector('.computer-score p');
         userScore.textContent = uScore;
         computerScore.textContent = cScore;
