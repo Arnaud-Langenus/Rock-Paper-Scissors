@@ -9,14 +9,14 @@ const game = () => {
         const match = document.querySelector('.match');
 
         playBtn.addEventListener('click', () => {
-            introScreen.classlist.add("fadeOut");
+            introScreen.classList.add("fadeOut");
             match.classList.add("fadeIn");
         })
     }
     //play a round
     const playMatch = () => {
         const options = document.querySelectorAll(".options button");
-        const playerHand = document.querySelector(".user-hand");
+        const userHand = document.querySelector(".user-hand");
         const computerHand = document.querySelector(".computer-hand");
         const hands = document.querySelectorAll(".hands img");
 
